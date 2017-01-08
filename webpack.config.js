@@ -2,7 +2,7 @@ var webpack = require('webpack');
 var path = require('path');
 
 var BUILD_DIR = path.resolve(__dirname, 'public/build');
-var APP_DIR = path.resolve(__dirname, 'app');
+var APP_DIR = path.resolve(__dirname, 'components');
 
 var config = {
   entry: APP_DIR + '/index.jsx',
