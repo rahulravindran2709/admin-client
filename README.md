@@ -2,11 +2,18 @@
 
 ## Development Setup
 
-1. Install nvm using [instructions on its Github page](https://github.com/creationix/nvm).
-2. Install dependencies using `npm install`
+1. Install [nvm](https://github.com/creationix/nvm).
+2. Install [yarn](https://yarnpkg.com): `brew update && brew install yarn`
+3. Install _webpack_ globally: `yarn global add webpack@beta`
+4. Install dependencies using `yarn install`
 
 ## Execution
 
 ```
-node app.js
+yarn run dev
 ```
+
+# Resources
+
+* http://survivejs.com/react/advanced-techniques/structuring-react-projects/
+* https://www.codementor.io/tamizhvendan/tutorials/beginner-guide-setup-reactjs-environment-npm-babel-6-webpack-du107r9zr
