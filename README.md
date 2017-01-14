@@ -13,6 +13,8 @@
 yarn run dev
 ```
 
+Now visit: http://localhost:3000/webpack-dev-server/
+
 # Resources
 
 * http://survivejs.com/react/advanced-techniques/structuring-react-projects/
