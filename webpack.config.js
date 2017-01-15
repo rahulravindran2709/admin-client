@@ -11,7 +11,8 @@ var config = {
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['.js', '.scss', '.css']
+    modules: [APP_DIR, "node_modules"],
+    extensions: ['.js', '.scss', '.css', '.jsx']
   },
   module: {
     rules: [

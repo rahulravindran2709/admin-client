@@ -1,6 +1,6 @@
 import React from 'react';
 import App from 'grommet/components/App';
-import LoginForm from './LoginForm.jsx'
+import LoginForm from 'LoginForm'
 import Box from 'grommet/components/Box';
 import Header from 'grommet/components/Header';
 import Footer from 'grommet/components/Footer';
@@ -11,11 +11,11 @@ export default class Main extends React.Component {
   render() {
     return (
       <App centered={false}>
-        <LoginForm/>
-
         <Header direction="row" justify="between" pad={{horizontal: 'medium'}}>
           <Title>Grommet standalone</Title>
         </Header>
+
+        <LoginForm/>
 
         <Box pad='medium'>
           <Meter value={40}/>
