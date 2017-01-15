@@ -10,12 +10,30 @@ var config = {
     path: BUILD_DIR,
     filename: 'bundle.js'
   },
+  resolve: {
+    extensions: ['.js', '.scss', '.css']
+  },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?/,
         include: APP_DIR,
-        loader: 'babel-loader'
+        use: [{loader: 'babel-loader'}]
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          {loader: "style-loader"},
+          {loader: "css-loader"},
+          {
+            loader: "sass-loader",
+            options: {
+              includePaths: [
+                './node_modules'
+              ]
+            }
+          }
+        ]
       }
     ]
   }
