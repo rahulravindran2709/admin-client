@@ -1,8 +1,7 @@
-var webpack = require('webpack');
-var path = require('path');
+var path = require('path')
 
-var BUILD_DIR = path.resolve(__dirname, 'build');
-var APP_DIR = path.resolve(__dirname, 'components');
+var BUILD_DIR = path.resolve(__dirname, 'build')
+var APP_DIR = path.resolve(__dirname, 'components')
 
 var config = {
   entry: APP_DIR + '/index.jsx',
@@ -11,7 +10,7 @@ var config = {
     filename: 'bundle.js'
   },
   resolve: {
-    modules: [APP_DIR, "node_modules"],
+    modules: [APP_DIR, 'node_modules'],
     extensions: ['.js', '.scss', '.css', '.jsx']
   },
   module: {
@@ -24,10 +23,10 @@ var config = {
       {
         test: /\.scss$/,
         use: [
-          {loader: "style-loader"},
-          {loader: "css-loader"},
+          {loader: 'style-loader'},
+          {loader: 'css-loader'},
           {
-            loader: "sass-loader",
+            loader: 'sass-loader',
             options: {
               includePaths: [
                 './node_modules'
@@ -38,6 +37,6 @@ var config = {
       }
     ]
   }
-};
+}
 
-module.exports = config;
+module.exports = config
