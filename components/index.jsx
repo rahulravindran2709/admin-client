@@ -11,5 +11,5 @@ ReactDOM.render(
       <Route path='/' component={Main} />
       <Route path='foo' component={LoginForm} />
     </Router>
-  ), document.getElementById('app')
+  ), document.getElementById('root')
 )
