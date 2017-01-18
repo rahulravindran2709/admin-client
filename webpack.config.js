@@ -2,6 +2,7 @@ var path = require('path')
 
 var BUILD_DIR = path.resolve(__dirname, 'build')
 var APP_DIR = path.resolve(__dirname, 'components')
+var SERVICES_DIR = path.resolve(__dirname, 'services')
 
 var config = {
   entry: APP_DIR + '/index.jsx',
@@ -10,7 +11,7 @@ var config = {
     filename: 'bundle.js'
   },
   resolve: {
-    modules: [APP_DIR, 'node_modules'],
+    modules: [APP_DIR, SERVICES_DIR, 'node_modules'],
     extensions: ['.js', '.scss', '.css', '.jsx']
   },
   module: {
