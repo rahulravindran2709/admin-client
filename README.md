@@ -20,3 +20,5 @@ Now visit: http://localhost:3000/webpack-dev-server/
 * http://survivejs.com/react/advanced-techniques/structuring-react-projects/
 * https://www.codementor.io/tamizhvendan/tutorials/beginner-guide-setup-reactjs-environment-npm-babel-6-webpack-du107r9zr
 * https://css-tricks.com/learning-react-router/
+* http://andrewhfarmer.com/react-ajax-best-practices/
+* https://egghead.io/lessons/react-mobx-fundamentals-handling-user-input-and-asynchronous-actions#/tab-code
