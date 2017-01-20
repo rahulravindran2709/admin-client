@@ -1,3 +1,5 @@
+import 'whatwg-fetch'
+
 export default class ApiService {
   constructor (token) {
     this.token = token
@@ -6,7 +8,7 @@ export default class ApiService {
 
   fetch (path) {
     console.log('Calling ' + this.fullUrl(path))
-    return window.fetch(this.fullUrl(path)).then(response => response.json())
+    return fetch(this.fullUrl(path)).then(response => response.json())
   }
 
   fullUrl (path) {

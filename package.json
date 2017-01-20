@@ -21,7 +21,8 @@
     "standard": "^8.6.0",
     "style-loader": "^0.13.1",
     "webpack": "beta",
-    "webpack-dev-server": "^1.16.2"
+    "webpack-dev-server": "^1.16.2",
+    "whatwg-fetch": "^2.0.2"
   },
   "scripts": {
     "fix": "standard --fix",
