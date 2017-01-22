@@ -6,9 +6,19 @@ export default class ApiService {
     this.baseUrl = 'http://localhost:3001'
   }
 
+  headers () {
+    if (this.token) {
+      return {Authorization: this.token}
+    } else {
+      return {}
+    }
+  }
+
   fetch (path) {
     console.log('Calling ' + this.fullUrl(path))
-    return fetch(this.fullUrl(path)).then(response => response.json())
+    return fetch(this.fullUrl(path), {
+      headers: this.headers()
+    }).then(response => response.json())
   }
 
   fullUrl (path) {

@@ -4,8 +4,12 @@ import LoginForm from 'grommet/components/LoginForm'
 import Box from 'grommet/components/Box'
 import 'grommet/scss/vanilla/index'
 import LoginService from 'LoginService'
+import Devtools from 'mobx-react-devtools'
+import {observable} from 'mobx';
+import {observer, inject} from 'mobx-react';
 
-export default class Login extends React.Component {
+@inject('appState') @observer
+class Login extends React.Component {
   constructor (props) {
     super(props)
 
@@ -13,15 +17,19 @@ export default class Login extends React.Component {
   }
 
   attemptLogin (data) {
-    console.log('Attempt login with')
-    console.log(data)
     let loginService = new LoginService()
-    loginService.fetch(data.username, data.password)
+    let that = this
+
+    loginService.fetch(data.username, data.password).then(function(response) {
+      that.props.appState.authorization.token = response.auth_token
+      that.props.router.push('/dashboard')
+    })
   }
 
   render () {
     return (
       <App centered={false}>
+        <Devtools />
         <Box align='center'>
           <LoginForm onSubmit={this.attemptLogin} title='GoDreams' secondaryText='Administration Interface'
             rememberMe />
@@ -30,3 +38,5 @@ export default class Login extends React.Component {
     )
   }
 }
+
+export default Login
