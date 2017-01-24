@@ -33,7 +33,8 @@
     "fix": "standard --fix",
     "test": "standard",
     "dev": "webpack-dev-server --port 3000 --content-base public/",
-    "build": "webpack -p"
+    "build": "webpack -p",
+    "start": "node components/index"
   },
   "author": "Hari Gopal <mail@harigopal.in>",
   "license": "ISC",
