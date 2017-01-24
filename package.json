@@ -34,7 +34,7 @@
     "test": "standard",
     "dev": "webpack-dev-server --port 3000 --content-base public/",
     "build": "webpack -p",
-    "start": "node components/index"
+    "start": "webpack-dev-server --progress --profile --colors"
   },
   "author": "Hari Gopal <mail@harigopal.in>",
   "license": "ISC",
