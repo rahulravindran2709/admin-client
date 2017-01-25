@@ -36,7 +36,7 @@
     "fix": "standard --fix",
     "test": "standard",
     "dev": "node ./devServer",
-    "build": "webpack -p",
+    "build": "NODE_ENV=production webpack --config webpack.config.prod.js --color -p --progress",
     "start": "./node_modules/.bin/http-server ./build",
     "clean": "rimraf ./build"
   },
