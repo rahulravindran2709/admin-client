@@ -1,36 +1,24 @@
-const path = require('path')
-const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-
-
-const BUILD_DIR = path.resolve(__dirname, 'build')
-var APP_DIR = path.resolve(__dirname, 'src/components')
-console.log(APP_DIR)
-var SERVICES_DIR = path.resolve(__dirname, 'src/services')
-
-var config = {
-        entry: APP_DIR + '/index.js',
-        output: {
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BUILD_DIR = path.resolve(__dirname, 'build');
+const APP_DIR = path.resolve(__dirname, 'src/components');
+const SERVICES_DIR = path.resolve(__dirname, 'src/services');
+module.exports = (options) => ({
+        entry: options.entry,
+        output: Object.assign({
                 path: BUILD_DIR,
                 filename: 'bundle.js'
-        },
+        }, options.output),
         resolve: {
                 modules: [APP_DIR, SERVICES_DIR, 'node_modules'],
                 extensions: ['.js', '.scss', '.css', '.jsx']
-        },/**Added plugins for HMR , Noerrors and for creating a index.html file out of a template
-            this makes it easy for webpack to inject the bundle file correctly into the body with correct resolved paths instead of 
-            us hard coding it.
-        ***/
-         plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new HtmlWebpackPlugin({
-      template: 'src/index.tpl.html',
-      inject: 'body',
-      filename: 'index.html'
-    })
-  ],
+        },
+        plugins: options.plugins.concat([new webpack.DefinePlugin({
+                'process.env': {
+                        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+                }
+        }), new webpack.NamedModulesPlugin()]),
         module: {
                 rules: [{
                         test: /\.js$/,
@@ -58,7 +46,8 @@ var config = {
                                 }
                         ]
                 }]
-        }
-}
-
-module.exports = config
+        },
+        devtool: options.devtool,
+        target: 'web',
+        performance: options.performance || {}
+});
