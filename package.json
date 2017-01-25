@@ -36,7 +36,9 @@
     "test": "standard",
     "dev": "webpack-dev-server --port 3000 --content-base public/",
     "build": "webpack -p",
+    /***Start needs to run after you have run a build, this will start the web server and serve the static index.html*/
     "start": "http-server ./build",
+    /**Deletes the build folder***/
     "clean": "rimraf ./build"
   },
   "author": "Hari Gopal <mail@harigopal.in>",

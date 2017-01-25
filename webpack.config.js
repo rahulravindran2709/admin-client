@@ -17,7 +17,10 @@ var config = {
         resolve: {
                 modules: [APP_DIR, SERVICES_DIR, 'node_modules'],
                 extensions: ['.js', '.scss', '.css', '.jsx']
-        },
+        },/**Added plugins for HMR , Noerrors and for creating a index.html file out of a template
+            this makes it easy for webpack to inject the bundle file correctly into the body with correct resolved paths instead of 
+            us hard coding it.
+        ***/
          plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
@@ -35,6 +38,7 @@ var config = {
                         use: [{
                                 loader: 'babel-loader',
                                 options: {
+                                  /**Disabling lookup of .babelrc file and use the configuration from here instead **/
                                         babelrc:false,
                                         presets: ["es2015", "react"],
                                         plugins: ["transform-decorators-legacy","transform-class-properties"]
