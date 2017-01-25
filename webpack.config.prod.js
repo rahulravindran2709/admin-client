@@ -13,9 +13,6 @@ module.exports = webpackBaseConfig({
     filename: '[name].js'
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
       template: 'src/index.tpl.html',
       inject: 'body',
