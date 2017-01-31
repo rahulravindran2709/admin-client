@@ -19,4 +19,4 @@ var port = 3000
 
 var server = new WebpackDevServer(compiler, webServerConfig)
 server.listen(port)
-console.info('==> 🌎 Listening on port %s', port);
+console.info('==> 🌎 Listening on port %s', port)

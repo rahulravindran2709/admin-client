@@ -1,8 +1,7 @@
 const path = require('path')
-const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const webpackBaseConfig =require('./webpack.config.base');
-const APP_ENTRY= path.resolve(__dirname, 'src/components','index.js');
+const webpackBaseConfig = require('./webpack.config.base')
+const APP_ENTRY = path.resolve(__dirname, 'src/components', 'index.js')
 
 module.exports = webpackBaseConfig({
   devtool: 'source-map',
@@ -17,7 +16,7 @@ module.exports = webpackBaseConfig({
       template: 'src/index.tpl.html',
       inject: 'body',
       filename: 'index.html',
-         minify: {
+      minify: {
         removeComments: true,
         collapseWhitespace: true,
         removeRedundantAttributes: true,
