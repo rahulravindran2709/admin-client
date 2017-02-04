@@ -2,12 +2,15 @@
 FROM node:boron
 #Create a working directory inside the image
 RUN mkdir -p /usr/apps/admin-client
+RUN mkdir /tmp/src
+ADD . /tmp/src
 WORKDIR /usr/apps/admin-client
-COPY package.json /usr/apps/admin-client
+RUN npm config set registry https://registry.npmjs.org/
+RUN cp /tmp/src/package.json /usr/apps/admin-client
 RUN npm install -g webpack
-RUN npm install
-COPY . /usr/apps/admin-client
-EXPOSE 8080
+RUN cd /tmp/src/ && npm install
+RUN cp -r /tmp/src/* /usr/apps/admin-client
 RUN npm run build
-CMD ["npm", "start"]
+RUN cp -r /usr/apps/admin-client/build /static
+CMD ["npm" "run" "start"]
 
